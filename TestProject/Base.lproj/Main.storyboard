@@ -3,7 +3,6 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="8154"/>
-        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
     </dependencies>
     <scenes>
         <!--View Controller-->
@@ -17,50 +16,13 @@
                     <view key="view" contentMode="scaleToFill" id="dgt-H5-hbP">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sg0-GQ-OdP">
-                                <rect key="frame" x="270" y="270" width="60" height="60"/>
-                                <animations/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="60" id="Cm1-b9-ZR1"/>
-                                    <constraint firstAttribute="width" secondItem="sg0-GQ-OdP" secondAttribute="height" multiplier="1:1" id="KP5-3E-93f"/>
-                                </constraints>
-                                <state key="normal" title="Button"/>
-                                <connections>
-                                    <segue destination="ivh-3x-NCM" kind="show" id="VCX-T5-DBR"/>
-                                </connections>
-                            </button>
-                        </subviews>
                         <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <constraints>
-                            <constraint firstItem="sg0-GQ-OdP" firstAttribute="centerX" secondItem="dgt-H5-hbP" secondAttribute="centerX" id="aMP-IN-Hkj"/>
-                            <constraint firstItem="sg0-GQ-OdP" firstAttribute="centerY" secondItem="dgt-H5-hbP" secondAttribute="centerY" id="cGV-hZ-qQI"/>
-                        </constraints>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="BYy-8Y-gH0" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="402" y="-591"/>
-        </scene>
-        <!--View Controller-->
-        <scene sceneID="hEv-Fl-J2L">
-            <objects>
-                <viewController id="ivh-3x-NCM" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="qoF-jK-6YQ"/>
-                        <viewControllerLayoutGuide type="bottom" id="k4i-Nk-FI6"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="xfC-MF-zKt">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <animations/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                    </view>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="gom-u7-5It" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1143" y="-591"/>
         </scene>
     </scenes>
 </document>
