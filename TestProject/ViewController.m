@@ -12,6 +12,8 @@
 
 @property (nonatomic, strong) UITableView *tableView;
 
+@property (nonatomic, strong) UIImageView *headerView;
+
 @end
 
 @implementation ViewController
@@ -21,6 +23,12 @@
     [super viewDidLoad];
     
     [self.view addSubview:self.tableView];
+    self.tableView.tableHeaderView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, 200)];
+    
+    [self.view addSubview:self.headerView];
+    
+    [self.tableView addObserver:self forKeyPath:@"contentOffset" options:NSKeyValueObservingOptionNew context:nil];
+    //  记得remove Observer
     
 }
 
@@ -31,7 +39,7 @@
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    return 100;
+    return 50;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -40,70 +48,28 @@
     if (!cell) {
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"cell"];
     }
-//    cell.textLabel.text = [NSString stringWithFormat:@"%ld", (long)indexPath.row];
-    cell.textLabel.textAlignment = NSTextAlignmentCenter;
-    cell.textLabel.textColor = [UIColor blackColor];
-    
-    NSInteger index = indexPath.row % 7;
-    switch (index) {
-        case 0:
-            cell.contentView.backgroundColor = [UIColor redColor];
-            break;
-            
-        case 1:
-            cell.contentView.backgroundColor = [UIColor orangeColor];
-            break;
-            
-        case 2:
-            cell.contentView.backgroundColor = [UIColor yellowColor];
-            break;
-            
-        case 3:
-            cell.contentView.backgroundColor = [UIColor greenColor];
-            break;
-            
-        case 4:
-            cell.contentView.backgroundColor = [UIColor blueColor];
-            break;
-            
-        case 5:
-            cell.contentView.backgroundColor = [UIColor purpleColor];
-            break;
-            
-        case 6:
-            cell.contentView.backgroundColor = [UIColor blackColor];
-            break;
-            
-        default:
-            break;
-    }
-    
-    cell.textLabel.text = [NSString stringWithFormat:@"%@", cell.contentView.backgroundColor];
+    cell.textLabel.text = [NSString stringWithFormat:@"%@", indexPath];
 
+    
     return cell;
 }
 
-- (void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath
+
+
+
+
+- (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context
 {
-    CGAffineTransform transformScale = CGAffineTransformMakeScale(0.8, 0.8);
-    CGAffineTransform transformTranslate = CGAffineTransformMakeTranslation(0, 0);
-    
-    cell.contentView.transform = CGAffineTransformConcat(transformScale, transformTranslate);
-    cell.contentView.alpha = 0.65;
-    
-    [self.tableView bringSubviewToFront:cell.contentView];
-    [UIView animateWithDuration:0.3
-                          delay:0
-                        options:UIViewAnimationOptionAllowUserInteraction
-                     animations:^{
-                         cell.contentView.alpha = 1;
-                         //clear the transform
-                         cell.contentView.transform = CGAffineTransformIdentity;
-                     } completion:nil];
-
+    CGFloat offset = self.tableView.contentOffset.y;
+    NSLog(@"tableView.offset = %f", offset);
+    if (offset > 0) {
+        //  向上滑动
+//        CGFloat height = offset > 200 ? 0 : (200-offset);
+        self.headerView.frame = CGRectMake(0, -offset, self.view.frame.size.width, 200);
+    } else {
+        self.headerView.frame = CGRectMake(offset, 0, self.view.frame.size.width - 2*offset, 200 - offset);
+    }
 }
-
-
 
 
 
@@ -117,6 +83,21 @@
     }
     return _tableView;
 }
+
+
+
+- (UIImageView *)headerView
+{
+    if (!_headerView) {
+        _headerView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, 200)];
+        _headerView.backgroundColor = [UIColor blackColor];
+        _headerView.image = [UIImage imageNamed:@"111.jpg"];
+        _headerView.contentMode = UIViewContentModeScaleAspectFit;
+    }
+    return _headerView;
+}
+
+
 
 
 @end
