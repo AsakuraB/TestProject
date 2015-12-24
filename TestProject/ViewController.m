@@ -14,6 +14,8 @@
 
 @property (nonatomic, strong) UIImageView *headerView;
 
+@property (nonatomic, strong) UIImageView *shareImageView;
+
 @end
 
 @implementation ViewController
@@ -26,6 +28,7 @@
     self.tableView.tableHeaderView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, 200)];
     
     [self.view addSubview:self.headerView];
+    [self.view addSubview:self.shareImageView];
     
     [self.tableView addObserver:self forKeyPath:@"contentOffset" options:NSKeyValueObservingOptionNew context:nil];
     //  记得remove Observer
@@ -48,7 +51,7 @@
     if (!cell) {
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"cell"];
     }
-    cell.textLabel.text = [NSString stringWithFormat:@"%@", indexPath];
+    cell.textLabel.text = [NSString stringWithFormat:@"%ld", (long)indexPath.row];
 
     
     return cell;
@@ -62,9 +65,10 @@
 {
     CGFloat offset = self.tableView.contentOffset.y;
     NSLog(@"tableView.offset = %f", offset);
+    CGFloat height = offset > 160 ? 10 : (170-offset);
+    self.shareImageView.frame = CGRectMake(300, height, 60, 60);
     if (offset > 0) {
         //  向上滑动
-//        CGFloat height = offset > 200 ? 0 : (200-offset);
         self.headerView.frame = CGRectMake(0, -offset, self.view.frame.size.width, 200);
     } else {
         self.headerView.frame = CGRectMake(offset, 0, self.view.frame.size.width - 2*offset, 200 - offset);
@@ -95,6 +99,20 @@
         _headerView.contentMode = UIViewContentModeScaleAspectFit;
     }
     return _headerView;
+}
+
+- (UIImageView *)shareImageView
+{
+    if (!_shareImageView) {
+        _shareImageView = [[UIImageView alloc] initWithFrame:CGRectMake(300, 170, 60, 60)];
+        _shareImageView.image = [UIImage imageNamed:@"111.jpg"];
+        _shareImageView.layer.cornerRadius = 30;
+        _shareImageView.layer.masksToBounds = YES;
+        _shareImageView.layer.borderColor = [UIColor grayColor].CGColor;
+        _shareImageView.layer.borderWidth = 1;
+        
+    }
+    return _shareImageView;
 }
 
 
