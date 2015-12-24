@@ -16,6 +16,8 @@
 
 @property (nonatomic, strong) UIImageView *shareImageView;
 
+@property (nonatomic, strong) UIView *statusBarBackgroundView;
+
 @end
 
 @implementation ViewController
@@ -29,6 +31,7 @@
     
     [self.view addSubview:self.headerView];
     [self.view addSubview:self.shareImageView];
+    [self.view addSubview:self.statusBarBackgroundView];
     
     [self.tableView addObserver:self forKeyPath:@"contentOffset" options:NSKeyValueObservingOptionNew context:nil];
     //  记得remove Observer
@@ -52,7 +55,7 @@
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"cell"];
     }
     cell.textLabel.text = [NSString stringWithFormat:@"%ld", (long)indexPath.row];
-
+    cell.backgroundColor = [UIColor blackColor];
     
     return cell;
 }
@@ -67,6 +70,15 @@
     NSLog(@"tableView.offset = %f", offset);
     CGFloat height = offset > 160 ? 10 : (170-offset);
     self.shareImageView.frame = CGRectMake(300, height, 60, 60);
+    if (offset > 180) {
+        [UIView animateWithDuration:0.3 animations:^{
+            self.statusBarBackgroundView.backgroundColor = [UIColor whiteColor];
+        }];
+    } else {
+        [UIView animateWithDuration:0.3 animations:^{
+            self.statusBarBackgroundView.backgroundColor = [UIColor clearColor];
+        }];
+    }
     if (offset > 0) {
         //  向上滑动
         self.headerView.frame = CGRectMake(0, -offset, self.view.frame.size.width, 200);
@@ -115,6 +127,14 @@
     return _shareImageView;
 }
 
+- (UIView *)statusBarBackgroundView
+{
+    if (!_statusBarBackgroundView) {
+        _statusBarBackgroundView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, 20)];
+        _statusBarBackgroundView.backgroundColor = [UIColor clearColor];
+    }
+    return _statusBarBackgroundView;
+}
 
 
 
