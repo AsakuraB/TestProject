@@ -25,7 +25,7 @@
 {
     [super viewDidLoad];
     
-    
+    [self.view addSubview:self.collectionView];
     
 }
 
@@ -42,7 +42,7 @@
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath
 {
-    CollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"Cell" forIndexPath:indexPath];
+    CollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"cell" forIndexPath:indexPath];
     cell.label.text = self.dataArray[indexPath.section][indexPath.row];
     
     return cell;
@@ -97,6 +97,7 @@
         _collectionView = [[UICollectionView alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height) collectionViewLayout:layout];
         _collectionView.dataSource = self;
         _collectionView.delegate = self;
+        _collectionView.backgroundColor = [UIColor yellowColor];
         
         [_collectionView registerClass:[CollectionViewCell class] forCellWithReuseIdentifier:@"cell"];
         _collectionView.draggable = YES;
