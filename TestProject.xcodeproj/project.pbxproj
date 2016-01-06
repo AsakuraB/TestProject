@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		B12CBBC21C3236B800810B57 /* sdfasdfas.m in Sources */ = {isa = PBXBuildFile; fileRef = B12CBBC11C3236B800810B57 /* sdfasdfas.m */; settings = {ASSET_TAGS = (); }; };
 		B1420D071B5CC72E00990299 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = B1420D061B5CC72E00990299 /* main.m */; };
 		B1420D0A1B5CC72E00990299 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = B1420D091B5CC72E00990299 /* AppDelegate.m */; };
 		B1420D0D1B5CC72E00990299 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B1420D0C1B5CC72E00990299 /* ViewController.m */; };
@@ -17,6 +16,12 @@
 		B1420D211B5CC72E00990299 /* TestProjectTests.m in Sources */ = {isa = PBXBuildFile; fileRef = B1420D201B5CC72E00990299 /* TestProjectTests.m */; };
 		B14388371B957989008249D3 /* 111.jpg in Resources */ = {isa = PBXBuildFile; fileRef = B14388361B957989008249D3 /* 111.jpg */; };
 		B14BC4671BA05924008F7241 /* CoreAudio.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B14BC4661BA05924008F7241 /* CoreAudio.framework */; };
+		B1F6451E1C3CBB82009EDBD0 /* LSCollectionViewHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = B1F645141C3CBB82009EDBD0 /* LSCollectionViewHelper.m */; settings = {ASSET_TAGS = (); }; };
+		B1F6451F1C3CBB82009EDBD0 /* LSCollectionViewLayoutHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = B1F645161C3CBB82009EDBD0 /* LSCollectionViewLayoutHelper.m */; settings = {ASSET_TAGS = (); }; };
+		B1F645201C3CBB82009EDBD0 /* DraggableCollectionViewFlowLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = B1F645191C3CBB82009EDBD0 /* DraggableCollectionViewFlowLayout.m */; settings = {ASSET_TAGS = (); }; };
+		B1F645211C3CBB82009EDBD0 /* UICollectionView+Draggable.m in Sources */ = {isa = PBXBuildFile; fileRef = B1F6451B1C3CBB82009EDBD0 /* UICollectionView+Draggable.m */; settings = {ASSET_TAGS = (); }; };
+		B1F645251C3CBDEA009EDBD0 /* CollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B1F645241C3CBDEA009EDBD0 /* CollectionViewCell.m */; settings = {ASSET_TAGS = (); }; };
+		B1F645291C3CC553009EDBD0 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B1F645281C3CC553009EDBD0 /* QuartzCore.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -30,8 +35,6 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		B12CBBC01C3236B800810B57 /* sdfasdfas.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = sdfasdfas.h; sourceTree = "<group>"; };
-		B12CBBC11C3236B800810B57 /* sdfasdfas.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = sdfasdfas.m; sourceTree = "<group>"; };
 		B1420D011B5CC72E00990299 /* TestProject.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TestProject.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B1420D051B5CC72E00990299 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B1420D061B5CC72E00990299 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -47,6 +50,19 @@
 		B1420D201B5CC72E00990299 /* TestProjectTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TestProjectTests.m; sourceTree = "<group>"; };
 		B14388361B957989008249D3 /* 111.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 111.jpg; sourceTree = "<group>"; };
 		B14BC4661BA05924008F7241 /* CoreAudio.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreAudio.framework; path = System/Library/Frameworks/CoreAudio.framework; sourceTree = SDKROOT; };
+		B1F645131C3CBB82009EDBD0 /* LSCollectionViewHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LSCollectionViewHelper.h; sourceTree = "<group>"; };
+		B1F645141C3CBB82009EDBD0 /* LSCollectionViewHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LSCollectionViewHelper.m; sourceTree = "<group>"; };
+		B1F645151C3CBB82009EDBD0 /* LSCollectionViewLayoutHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LSCollectionViewLayoutHelper.h; sourceTree = "<group>"; };
+		B1F645161C3CBB82009EDBD0 /* LSCollectionViewLayoutHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LSCollectionViewLayoutHelper.m; sourceTree = "<group>"; };
+		B1F645181C3CBB82009EDBD0 /* DraggableCollectionViewFlowLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DraggableCollectionViewFlowLayout.h; sourceTree = "<group>"; };
+		B1F645191C3CBB82009EDBD0 /* DraggableCollectionViewFlowLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DraggableCollectionViewFlowLayout.m; sourceTree = "<group>"; };
+		B1F6451A1C3CBB82009EDBD0 /* UICollectionView+Draggable.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UICollectionView+Draggable.h"; sourceTree = "<group>"; };
+		B1F6451B1C3CBB82009EDBD0 /* UICollectionView+Draggable.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UICollectionView+Draggable.m"; sourceTree = "<group>"; };
+		B1F6451C1C3CBB82009EDBD0 /* UICollectionViewDataSource_Draggable.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UICollectionViewDataSource_Draggable.h; sourceTree = "<group>"; };
+		B1F6451D1C3CBB82009EDBD0 /* UICollectionViewLayout_Warpable.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UICollectionViewLayout_Warpable.h; sourceTree = "<group>"; };
+		B1F645231C3CBDEA009EDBD0 /* CollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CollectionViewCell.h; sourceTree = "<group>"; };
+		B1F645241C3CBDEA009EDBD0 /* CollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CollectionViewCell.m; sourceTree = "<group>"; };
+		B1F645281C3CC553009EDBD0 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -54,6 +70,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B1F645291C3CC553009EDBD0 /* QuartzCore.framework in Frameworks */,
 				B14BC4671BA05924008F7241 /* CoreAudio.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -71,6 +88,7 @@
 		B1420CF81B5CC72D00990299 = {
 			isa = PBXGroup;
 			children = (
+				B1F645281C3CC553009EDBD0 /* QuartzCore.framework */,
 				B14BC4661BA05924008F7241 /* CoreAudio.framework */,
 				B1420D031B5CC72E00990299 /* TestProject */,
 				B1420D1D1B5CC72E00990299 /* TestProjectTests */,
@@ -90,12 +108,13 @@
 		B1420D031B5CC72E00990299 /* TestProject */ = {
 			isa = PBXGroup;
 			children = (
+				B1F645111C3CBB82009EDBD0 /* DraggableCollectionView */,
 				B1420D081B5CC72E00990299 /* AppDelegate.h */,
 				B1420D091B5CC72E00990299 /* AppDelegate.m */,
 				B1420D0B1B5CC72E00990299 /* ViewController.h */,
 				B1420D0C1B5CC72E00990299 /* ViewController.m */,
-				B12CBBC01C3236B800810B57 /* sdfasdfas.h */,
-				B12CBBC11C3236B800810B57 /* sdfasdfas.m */,
+				B1F645231C3CBDEA009EDBD0 /* CollectionViewCell.h */,
+				B1F645241C3CBDEA009EDBD0 /* CollectionViewCell.m */,
 				B1420D0E1B5CC72E00990299 /* Main.storyboard */,
 				B14388361B957989008249D3 /* 111.jpg */,
 				B1420D111B5CC72E00990299 /* Images.xcassets */,
@@ -129,6 +148,39 @@
 				B1420D1F1B5CC72E00990299 /* Info.plist */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		B1F645111C3CBB82009EDBD0 /* DraggableCollectionView */ = {
+			isa = PBXGroup;
+			children = (
+				B1F645121C3CBB82009EDBD0 /* Helpers */,
+				B1F645171C3CBB82009EDBD0 /* Layout */,
+				B1F6451A1C3CBB82009EDBD0 /* UICollectionView+Draggable.h */,
+				B1F6451B1C3CBB82009EDBD0 /* UICollectionView+Draggable.m */,
+				B1F6451C1C3CBB82009EDBD0 /* UICollectionViewDataSource_Draggable.h */,
+				B1F6451D1C3CBB82009EDBD0 /* UICollectionViewLayout_Warpable.h */,
+			);
+			path = DraggableCollectionView;
+			sourceTree = "<group>";
+		};
+		B1F645121C3CBB82009EDBD0 /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				B1F645131C3CBB82009EDBD0 /* LSCollectionViewHelper.h */,
+				B1F645141C3CBB82009EDBD0 /* LSCollectionViewHelper.m */,
+				B1F645151C3CBB82009EDBD0 /* LSCollectionViewLayoutHelper.h */,
+				B1F645161C3CBB82009EDBD0 /* LSCollectionViewLayoutHelper.m */,
+			);
+			path = Helpers;
+			sourceTree = "<group>";
+		};
+		B1F645171C3CBB82009EDBD0 /* Layout */ = {
+			isa = PBXGroup;
+			children = (
+				B1F645181C3CBB82009EDBD0 /* DraggableCollectionViewFlowLayout.h */,
+				B1F645191C3CBB82009EDBD0 /* DraggableCollectionViewFlowLayout.m */,
+			);
+			path = Layout;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -233,10 +285,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B1F645211C3CBB82009EDBD0 /* UICollectionView+Draggable.m in Sources */,
 				B1420D0D1B5CC72E00990299 /* ViewController.m in Sources */,
-				B12CBBC21C3236B800810B57 /* sdfasdfas.m in Sources */,
 				B1420D0A1B5CC72E00990299 /* AppDelegate.m in Sources */,
+				B1F6451F1C3CBB82009EDBD0 /* LSCollectionViewLayoutHelper.m in Sources */,
+				B1F645201C3CBB82009EDBD0 /* DraggableCollectionViewFlowLayout.m in Sources */,
 				B1420D071B5CC72E00990299 /* main.m in Sources */,
+				B1F645251C3CBDEA009EDBD0 /* CollectionViewCell.m in Sources */,
+				B1F6451E1C3CBB82009EDBD0 /* LSCollectionViewHelper.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

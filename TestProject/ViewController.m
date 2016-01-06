@@ -7,19 +7,15 @@
 //
 
 #import "ViewController.h"
-#import "sdfasdfas.h"
+#import "UICollectionView+Draggable.h"
+#import "DraggableCollectionViewFlowLayout.h"
+#import "CollectionViewCell.h"
 
-@interface ViewController ()<UITableViewDelegate, UITableViewDataSource>
+@interface ViewController ()<UICollectionViewDataSource_Draggable, UICollectionViewDelegate>
 
-@property (nonatomic, strong) UITableView *tableView;
+@property (nonatomic, strong) UICollectionView *collectionView;
 
-@property (nonatomic, strong) UIImageView *headerView;
-
-@property (nonatomic, strong) UIImageView *shareImageView;
-
-@property (nonatomic, strong) UIView *statusBarBackgroundView;
-
-@property (nonatomic, strong) sdfasdfas *scroll;
+@property (nonatomic, strong) NSMutableArray *dataArray;
 
 @end
 
@@ -31,132 +27,98 @@
     
     
     
-    UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(100, 100, 43, 20)];
-    label.backgroundColor = [UIColor yellowColor];
-    label.font = [UIFont systemFontOfSize:15.0];
-    label.textColor = [UIColor blackColor];
-    label.lineBreakMode = NSLineBreakByWordWrapping;
-    label.numberOfLines = 0;
-
-    label.text = @"恐怖主义几十块的房间阿三手动房间卡是";
-    
-    [self.view addSubview:label];
-    
-//    int i = ceil(5.0/2);
-//    
-//    self.scroll = [[sdfasdfas alloc] init];
-//    [self.view addSubview:self.scroll];
-//    
-//
-//    [self.view addSubview:self.tableView];
-//    self.tableView.tableHeaderView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, 200)];
-//    
-//    [self.view addSubview:self.headerView];
-//    [self.view addSubview:self.shareImageView];
-//    [self.view addSubview:self.statusBarBackgroundView];
-//    
-//    [self.tableView addObserver:self forKeyPath:@"contentOffset" options:NSKeyValueObservingOptionNew context:nil];
-    //  记得remove Observer
-    
 }
 
-- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
+- (NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView
 {
-    return 200;
+    return self.dataArray.count;
 }
 
-- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+- (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section
 {
-    return 50;
+    return [[self.dataArray objectAtIndex:section] count];
 }
 
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+
+- (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath
 {
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"cell"];
-    if (!cell) {
-        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"cell"];
-    }
-    cell.textLabel.text = [NSString stringWithFormat:@"%ld", (long)indexPath.row];
-    cell.backgroundColor = [UIColor blackColor];
+    CollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"Cell" forIndexPath:indexPath];
+    cell.label.text = self.dataArray[indexPath.section][indexPath.row];
     
     return cell;
 }
 
-
-
-
-
-- (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context
+- (BOOL)collectionView:(LSCollectionViewHelper *)collectionView canMoveItemAtIndexPath:(NSIndexPath *)indexPath
 {
-    CGFloat offset = self.tableView.contentOffset.y;
-    NSLog(@"tableView.offset = %f", offset);
-    CGFloat height = offset > 160 ? 10 : (170-offset);
-    self.shareImageView.frame = CGRectMake(300, height, 60, 60);
-    if (offset > 180) {
-        [UIView animateWithDuration:0.3 animations:^{
-            self.statusBarBackgroundView.backgroundColor = [UIColor whiteColor];
-        }];
-    } else {
-        [UIView animateWithDuration:0.3 animations:^{
-            self.statusBarBackgroundView.backgroundColor = [UIColor clearColor];
-        }];
-    }
-    if (offset > 0) {
-        //  向上滑动
-        self.headerView.frame = CGRectMake(0, -offset, self.view.frame.size.width, 200);
-    } else {
-        self.headerView.frame = CGRectMake(offset, 0, self.view.frame.size.width - 2*offset, 200 - offset);
-    }
+    return YES;
+}
+
+- (BOOL)collectionView:(UICollectionView *)collectionView canMoveItemAtIndexPath:(NSIndexPath *)indexPath toIndexPath:(NSIndexPath *)toIndexPath
+{
+    // Prevent item from being moved to index 0
+    //    if (toIndexPath.item == 0) {
+    //        return NO;
+    //    }
+    return YES;
+}
+
+- (void)collectionView:(LSCollectionViewHelper *)collectionView moveItemAtIndexPath:(NSIndexPath *)fromIndexPath toIndexPath:(NSIndexPath *)toIndexPath
+{
+    NSMutableArray *data1 = [self.dataArray objectAtIndex:fromIndexPath.section];
+    NSMutableArray *data2 = [self.dataArray objectAtIndex:toIndexPath.section];
+    NSString *index = [data1 objectAtIndex:fromIndexPath.item];
+    
+    [data1 removeObjectAtIndex:fromIndexPath.item];
+    [data2 insertObject:index atIndex:toIndexPath.item];
 }
 
 
 
-- (UITableView *)tableView
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+- (UICollectionView *)collectionView
 {
-    if (!_tableView) {
-        _tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height)];
-        _tableView.backgroundColor = [UIColor yellowColor];
-        _tableView.delegate = self;
-        _tableView.dataSource = self;
-    }
-    return _tableView;
-}
-
-
-
-- (UIImageView *)headerView
-{
-    if (!_headerView) {
-        _headerView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, 200)];
-        _headerView.backgroundColor = [UIColor blackColor];
-        _headerView.image = [UIImage imageNamed:@"111.jpg"];
-        _headerView.contentMode = UIViewContentModeScaleAspectFit;
-    }
-    return _headerView;
-}
-
-- (UIImageView *)shareImageView
-{
-    if (!_shareImageView) {
-        _shareImageView = [[UIImageView alloc] initWithFrame:CGRectMake(300, 170, 60, 60)];
-        _shareImageView.image = [UIImage imageNamed:@"111.jpg"];
-        _shareImageView.layer.cornerRadius = 30;
-        _shareImageView.layer.masksToBounds = YES;
-        _shareImageView.layer.borderColor = [UIColor grayColor].CGColor;
-        _shareImageView.layer.borderWidth = 1;
+    if (!_collectionView) {
+        DraggableCollectionViewFlowLayout *layout = [[DraggableCollectionViewFlowLayout alloc] init];
+        [layout setScrollDirection:UICollectionViewScrollDirectionVertical];
+        _collectionView = [[UICollectionView alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height) collectionViewLayout:layout];
+        _collectionView.dataSource = self;
+        _collectionView.delegate = self;
         
+        [_collectionView registerClass:[CollectionViewCell class] forCellWithReuseIdentifier:@"cell"];
+        _collectionView.draggable = YES;
     }
-    return _shareImageView;
+    return _collectionView;
 }
 
-- (UIView *)statusBarBackgroundView
+- (NSMutableArray *)dataArray
 {
-    if (!_statusBarBackgroundView) {
-        _statusBarBackgroundView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, 20)];
-        _statusBarBackgroundView.backgroundColor = [UIColor clearColor];
+    if (!_dataArray) {
+        _dataArray = [NSMutableArray new];
+        for (int j = 0; j < 2; j++) {
+            NSMutableArray *array = [NSMutableArray new];
+            for (int i = 0; i < 20; i++) {
+                [array addObject:[NSString stringWithFormat:@"%d  %d", j, i]];
+            }
+            [_dataArray addObject:array];
+        }
     }
-    return _statusBarBackgroundView;
+    return _dataArray;
 }
+
 
 
 
