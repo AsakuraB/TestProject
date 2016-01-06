@@ -7,6 +7,7 @@
 //
 
 #import "ViewController.h"
+#import "sdfasdfas.h"
 
 @interface ViewController ()<UITableViewDelegate, UITableViewDataSource>
 
@@ -18,6 +19,8 @@
 
 @property (nonatomic, strong) UIView *statusBarBackgroundView;
 
+@property (nonatomic, strong) sdfasdfas *scroll;
+
 @end
 
 @implementation ViewController
@@ -26,14 +29,33 @@
 {
     [super viewDidLoad];
     
-    [self.view addSubview:self.tableView];
-    self.tableView.tableHeaderView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, 200)];
     
-    [self.view addSubview:self.headerView];
-    [self.view addSubview:self.shareImageView];
-    [self.view addSubview:self.statusBarBackgroundView];
     
-    [self.tableView addObserver:self forKeyPath:@"contentOffset" options:NSKeyValueObservingOptionNew context:nil];
+    UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(100, 100, 43, 20)];
+    label.backgroundColor = [UIColor yellowColor];
+    label.font = [UIFont systemFontOfSize:15.0];
+    label.textColor = [UIColor blackColor];
+    label.lineBreakMode = NSLineBreakByWordWrapping;
+    label.numberOfLines = 0;
+
+    label.text = @"恐怖主义几十块的房间阿三手动房间卡是";
+    
+    [self.view addSubview:label];
+    
+//    int i = ceil(5.0/2);
+//    
+//    self.scroll = [[sdfasdfas alloc] init];
+//    [self.view addSubview:self.scroll];
+//    
+//
+//    [self.view addSubview:self.tableView];
+//    self.tableView.tableHeaderView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, 200)];
+//    
+//    [self.view addSubview:self.headerView];
+//    [self.view addSubview:self.shareImageView];
+//    [self.view addSubview:self.statusBarBackgroundView];
+//    
+//    [self.tableView addObserver:self forKeyPath:@"contentOffset" options:NSKeyValueObservingOptionNew context:nil];
     //  记得remove Observer
     
 }
