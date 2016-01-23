@@ -16,6 +16,8 @@
 		B1420D211B5CC72E00990299 /* TestProjectTests.m in Sources */ = {isa = PBXBuildFile; fileRef = B1420D201B5CC72E00990299 /* TestProjectTests.m */; };
 		B14388371B957989008249D3 /* 111.jpg in Resources */ = {isa = PBXBuildFile; fileRef = B14388361B957989008249D3 /* 111.jpg */; };
 		B14BC4671BA05924008F7241 /* CoreAudio.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B14BC4661BA05924008F7241 /* CoreAudio.framework */; };
+		B174091A1C521AFF00B449B4 /* sb1.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B17409191C521AFF00B449B4 /* sb1.storyboard */; };
+		B174091D1C521B2D00B449B4 /* ViewController2.m in Sources */ = {isa = PBXBuildFile; fileRef = B174091C1C521B2D00B449B4 /* ViewController2.m */; };
 		B1F645291C3CC553009EDBD0 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B1F645281C3CC553009EDBD0 /* QuartzCore.framework */; };
 /* End PBXBuildFile section */
 
@@ -45,6 +47,9 @@
 		B1420D201B5CC72E00990299 /* TestProjectTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TestProjectTests.m; sourceTree = "<group>"; };
 		B14388361B957989008249D3 /* 111.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 111.jpg; sourceTree = "<group>"; };
 		B14BC4661BA05924008F7241 /* CoreAudio.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreAudio.framework; path = System/Library/Frameworks/CoreAudio.framework; sourceTree = SDKROOT; };
+		B17409191C521AFF00B449B4 /* sb1.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = sb1.storyboard; sourceTree = "<group>"; };
+		B174091B1C521B2D00B449B4 /* ViewController2.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ViewController2.h; sourceTree = "<group>"; };
+		B174091C1C521B2D00B449B4 /* ViewController2.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ViewController2.m; sourceTree = "<group>"; };
 		B1F645281C3CC553009EDBD0 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
@@ -95,6 +100,9 @@
 				B1420D091B5CC72E00990299 /* AppDelegate.m */,
 				B1420D0B1B5CC72E00990299 /* ViewController.h */,
 				B1420D0C1B5CC72E00990299 /* ViewController.m */,
+				B174091B1C521B2D00B449B4 /* ViewController2.h */,
+				B174091C1C521B2D00B449B4 /* ViewController2.m */,
+				B17409191C521AFF00B449B4 /* sb1.storyboard */,
 				B1420D0E1B5CC72E00990299 /* Main.storyboard */,
 				B14388361B957989008249D3 /* 111.jpg */,
 				B1420D111B5CC72E00990299 /* Images.xcassets */,
@@ -213,6 +221,7 @@
 			files = (
 				B1420D101B5CC72E00990299 /* Main.storyboard in Resources */,
 				B14388371B957989008249D3 /* 111.jpg in Resources */,
+				B174091A1C521AFF00B449B4 /* sb1.storyboard in Resources */,
 				B1420D151B5CC72E00990299 /* LaunchScreen.xib in Resources */,
 				B1420D121B5CC72E00990299 /* Images.xcassets in Resources */,
 			);
@@ -233,6 +242,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				B1420D0D1B5CC72E00990299 /* ViewController.m in Sources */,
+				B174091D1C521B2D00B449B4 /* ViewController2.m in Sources */,
 				B1420D0A1B5CC72E00990299 /* AppDelegate.m in Sources */,
 				B1420D071B5CC72E00990299 /* main.m in Sources */,
 			);
