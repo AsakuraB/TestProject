@@ -7,6 +7,7 @@
 //
 
 #import "ViewController.h"
+#import "View.h"
 
 @interface ViewController ()
 
@@ -23,6 +24,11 @@
 //    [self.navigationItem setBackBarButtonItem:left];
     
     self.title = @"111";
+    View *v = [[View alloc] initWithFrame:CGRectMake(50, 50, 50, 50)];
+    v.backgroundColor = [UIColor yellowColor];
+    v.center = CGPointMake(100, 100);
+    [self.view addSubview:v];
+    
 
     
 }
@@ -38,7 +44,13 @@
 
 - (IBAction)showSomething:(UIButton *)sender
 {
-    NSLog(@"showSomethingPressed");
+
+    
+    
+    
+    
+    
+    
     
     
 }
